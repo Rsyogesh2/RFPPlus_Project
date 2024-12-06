@@ -11,7 +11,13 @@ const jwt = require('jsonwebtoken'); // Consider using for authentication
 const login = require('./login/login');
 const addUsers = require('./routes/addUsers')
 // const bcrypt = require("bcryptjs");
+const cors = require("cors");
 
+// Allow requests from the frontend
+app.use(cors({
+  origin: "https://rfpplus-frontend.onrender.com", // Frontend URL
+  methods: ["GET", "POST", "PUT", "DELETE"],
+}));
 
 require('dotenv').config();
 
