@@ -14,11 +14,6 @@ const addUsers = require('./routes/addUsers')
 const cors = require("cors");
 
 // Allow requests from the frontend
-app.use(cors({
-  origin: "https://rfpplus-frontend.onrender.com", // Frontend URL
-  methods: ["GET", "POST", "PUT", "DELETE"],
-}));
-
 require('dotenv').config();
 
 const app = express();
@@ -28,6 +23,11 @@ app.use(express.json());
 // 
 
 app.use(bodyParser.json());
+app.use(cors({
+  origin: "https://rfpplus-frontend.onrender.com", // Frontend URL
+  methods: ["GET", "POST", "PUT", "DELETE"],
+}));
+
 
 app.use('/', login);
 app.use('/', addUsers);
